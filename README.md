@@ -2,8 +2,7 @@
 
 ### Usage:
 
-
-![alt text](https://github.com/nikeshkrjha/StarRatingControl/commit/1d5dcc1f37964dfd38abd92552dfb185d8fbe0b6#diff-1410620144ff355f3a9ddb41b512d913)
+![alt text](https://github.com/nikeshkrjha/StarRatingControl/blob/master/IMG_0225.PNG)
 
     override func viewDidLoad() {
         super.viewDidLoad()
