@@ -1,7 +1,8 @@
 # StarRatingControl
 
 ### Usage:
- override func viewDidLoad() {
+
+    override func viewDidLoad() {
         super.viewDidLoad()
         let ratingView =  RatingGraphView(frame: CGRect(x: 20, y: 40, width: 300, height: 180))
         ratingView.ratingsDict = [.one : "10000",.two : "5000",.three : "4000",.four : "7000",.five : "15000"]
@@ -17,5 +18,6 @@
         ratingView.fourStarBare.backgroundColor = UIColor.blue
         ratingView.fiveStarBar.backgroundColor = UIColor.yellow
     }
+
     
     
