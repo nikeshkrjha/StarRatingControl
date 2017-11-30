@@ -34,22 +34,13 @@ class ViewController: UIViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print("landscape")
+        print(size)
+        let screenWidth = size.width
+        ratingView.frame.size.width = screenWidth * 0.70
+        ratingView.frame.origin.x = screenWidth * 0.15
+        ratingView.setNeedsDisplay()
         
-        if UIDevice.current.orientation.isLandscape {
-            print("landscape")
-            print(size)
-            let screenWidth = size.width
-            ratingView.frame.size.width = screenWidth * 0.70
-            ratingView.frame.origin.x = screenWidth * 0.15
-            ratingView.setNeedsDisplay()
-        }else{
-            print("portrait")
-            print(size)
-            let screenWidth = size.width
-            ratingView.frame.size.width = screenWidth * 0.70
-            ratingView.frame.origin.x = screenWidth * 0.15
-            ratingView.setNeedsDisplay()
-        }
     }
 }
 
