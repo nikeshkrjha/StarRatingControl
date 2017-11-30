@@ -66,7 +66,7 @@ class RatingGraphView: UIView {
         super.init(frame: frame)
         self.frame = frame
         
-        maxWidth = self.frame.width * 0.6
+        
         let view = Bundle.main.loadNibNamed("RatingView", owner: self, options: nil)?[0] as! UIView
         view.frame = self.bounds
         self.addSubview(view)
@@ -85,6 +85,7 @@ class RatingGraphView: UIView {
     
     //MARK:- Set width of different bars
     func setBarWidth(){
+        maxWidth = self.frame.width * 0.6
         let valuesArr = ratingsDict.values.map {
             return Int($0)!
         }
@@ -98,23 +99,23 @@ class RatingGraphView: UIView {
             case .one:
                 oneStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
                 oneStarVal.text = "(\(value))"
-                print(oneStarWidthConstraint.constant)
+//                print(oneStarWidthConstraint.constant)
             case .two:
                 twoStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
                 twoStarVal.text = "(\(value))"
-                print(twoStarWidthConstraint.constant)
+//                print(twoStarWidthConstraint.constant)
             case .three:
                 threeStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
                 threeStarVal.text = "(\(value))"
-                print(threeStarWidthConstraint.constant)
+//                print(threeStarWidthConstraint.constant)
             case .four:
                 fourStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
                 fourStarVal.text = "(\(value))"
-                print(fourStarWidthConstraint.constant)
+//                print(fourStarWidthConstraint.constant)
             case .five:
                 fiveStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
                 fiveStarVal.text = "(\(value))"
-                print(fiveStarWidthConstraint.constant)
+//                print(fiveStarWidthConstraint.constant)
             default:
                 print()
             }

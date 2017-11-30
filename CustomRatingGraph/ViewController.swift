@@ -9,11 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var ratingView: RatingGraphView = RatingGraphView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let ratingView =  RatingGraphView(frame: CGRect(x: 20, y: 40, width: 300, height: 180))
-        ratingView.ratingsDict = [.one : "10000",.two : "5000",.three : "4000",.four : "7000",.five : "15000"]
+        
+        ratingView =  RatingGraphView(frame: CGRect(x: 20, y: 40, width: 300, height: 180))
+        ratingView.ratingsDict = [.one : "1500",.two : "1450",.three : "1600",.four : "1300",.five : "1370"]
         ratingView.layer.borderColor = UIColor.lightGray.cgColor
         ratingView.layer.borderWidth = 1
         
@@ -26,9 +28,28 @@ class ViewController: UIViewController {
         ratingView.fourStarBare.backgroundColor = UIColor.blue
         ratingView.fiveStarBar.backgroundColor = UIColor.yellow
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        if UIDevice.current.orientation.isLandscape {
+            print("landscape")
+            print(size)
+            let screenWidth = size.width
+            ratingView.frame.size.width = screenWidth * 0.70
+            ratingView.frame.origin.x = screenWidth * 0.15
+            ratingView.setNeedsDisplay()
+        }else{
+            print("portrait")
+            print(size)
+            let screenWidth = size.width
+            ratingView.frame.size.width = screenWidth * 0.70
+            ratingView.frame.origin.x = screenWidth * 0.15
+            ratingView.setNeedsDisplay()
+        }
     }
 }
 
