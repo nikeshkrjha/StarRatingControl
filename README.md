@@ -1,9 +1,11 @@
 # StarRatingControl
 
-### Usage:
+### Screenshot:
 
 ![alt text](https://github.com/nikeshkrjha/StarRatingControl/blob/master/IMG_0225.PNG)
 
+
+### Usage:
     override func viewDidLoad() {
         super.viewDidLoad()
         let ratingView =  RatingGraphView(frame: CGRect(x: 20, y: 40, width: 300, height: 180))
