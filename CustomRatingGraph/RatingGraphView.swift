@@ -85,7 +85,7 @@ class RatingGraphView: UIView {
     
     //MARK:- Set width of different bars
     func setBarWidth(){
-        maxWidth = self.frame.width * 0.6
+        maxWidth = self.frame.width * 0.55
         let valuesArr = ratingsDict.values.map {
             return Int($0)!
         }
@@ -98,27 +98,36 @@ class RatingGraphView: UIView {
             switch item {
             case .one:
                 oneStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
-                oneStarVal.text = "(\(value))"
-//                print(oneStarWidthConstraint.constant)
+                oneStarVal.text = "(\(formatNumber(number: value)))"
             case .two:
                 twoStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
-                twoStarVal.text = "(\(value))"
-//                print(twoStarWidthConstraint.constant)
+                twoStarVal.text = "(\(formatNumber(number: value)))"
             case .three:
                 threeStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
-                threeStarVal.text = "(\(value))"
-//                print(threeStarWidthConstraint.constant)
+                threeStarVal.text = "(\(formatNumber(number: value)))"
             case .four:
                 fourStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
-                fourStarVal.text = "(\(value))"
-//                print(fourStarWidthConstraint.constant)
+                fourStarVal.text = "(\(formatNumber(number: value)))"
             case .five:
                 fiveStarWidthConstraint.constant = (value / CGFloat(maxValue)) * maxWidth
-                fiveStarVal.text = "(\(value))"
-//                print(fiveStarWidthConstraint.constant)
+                fiveStarVal.text = "(\(formatNumber(number: value)))"
             default:
                 print()
             }
         }
     }
+    
+    
+    //MARK:- Format number for display
+    func formatNumber(number: CGFloat) -> String{
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.decimal
+        formatter.roundingMode = NumberFormatter.RoundingMode.halfUp
+        formatter.maximumFractionDigits = 0
+        
+        let num = NSDecimalNumber(value: Float(number))
+        
+        return formatter.string(from: num)!
+    }
 }
+
